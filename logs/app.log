@@ -1,1 +1,47 @@
 2026-07-11 18:30:51,433 [INFO] {cloudidesandbox/docker_test.py}: Пользователь успешно вошел в контейнер
+2026-07-11 19:24:57,109 [INFO] {cloudidesandbox/docker_test.py}: Пользователь успешно вошел в контейнер
+2026-07-11 19:25:00,239 [INFO] {cloudidesandbox/docker_test.py}: Команда успешно выполнена. Лог комманды: total 56
+drwxr-xr-x   1 root root 4096 Jul 11 16:24 .
+drwxr-xr-x   1 root root 4096 Jul 11 16:24 ..
+-rwxr-xr-x   1 root root    0 Jul 11 16:24 .dockerenv
+lrwxrwxrwx   1 root root    7 May  8 16:10 bin -> usr/bin
+drwxr-xr-x   2 root root 4096 May  8 16:10 boot
+drwxr-xr-x   5 root root  360 Jul 11 16:24 dev
+drwxr-xr-x   1 root root 4096 Jul 11 16:24 etc
+drwxr-xr-x   2 root root 4096 May  8 16:10 home
+lrwxrwxrwx   1 root root    7 May  8 16:10 lib -> usr/lib
+lrwxrwxrwx   1 root root    9 May  8 16:10 lib64 -> usr/lib64
+drwxr-xr-x   2 root root 4096 Jun 23 00:00 media
+drwxr-xr-x   2 root root 4096 Jun 23 00:00 mnt
+drwxr-xr-x   2 root root 4096 Jun 23 00:00 opt
+dr-xr-xr-x 512 root root    0 Jul 11 16:24 proc
+drwx------   1 root root 4096 Jun 24 02:01 root
+drwxr-xr-x   3 root root 4096 Jun 23 00:00 run
+lrwxrwxrwx   1 root root    8 May  8 16:10 sbin -> usr/sbin
+drwxr-xr-x   2 root root 4096 Jun 23 00:00 srv
+dr-xr-xr-x  13 root root    0 Jul 11 15:31 sys
+drwxrwxrwt   2 root root 4096 Jun 23 00:00 tmp
+drwxr-xr-x   1 root root 4096 Jun 23 00:00 usr
+drwxr-xr-x   1 root root 4096 Jun 23 00:00 var
+2026-07-12 00:55:35,135 [INFO] {cloudidesandbox/api_v1/routes/websocket.py}: WebSocket подключение установлено
+2026-07-12 00:55:42,159 [INFO] {cloudidesandbox/api_v1/routes/websocket.py}: Выполнение команды ls
+2026-07-12 00:55:42,161 [ERROR] {cloudidesandbox/api_v1/routes/websocket.py}: Ошибка во время WebSocket подключения 409 Client Error for http+docker://localhost/v1.54/containers/60fbf1d10445bb6876e1bc0cb766c0e8c59daf01524499efb3b4a34774af38aa/exec: Conflict ("container 60fbf1d10445bb6876e1bc0cb766c0e8c59daf01524499efb3b4a34774af38aa is not running")
+2026-07-12 00:55:42,173 [INFO] {cloudidesandbox/api_v1/routes/websocket.py}: Контейнер остановил свою работу
+2026-07-12 00:55:42,248 [INFO] {cloudidesandbox/api_v1/routes/websocket.py}: Контейнер мягко удален
+2026-07-12 00:57:29,324 [INFO] {cloudidesandbox/api_v1/routes/websocket.py}: WebSocket подключение установлено
+2026-07-12 00:57:34,548 [INFO] {cloudidesandbox/api_v1/routes/websocket.py}: Выполнение команды ls
+2026-07-12 00:57:34,550 [ERROR] {cloudidesandbox/api_v1/routes/websocket.py}: Ошибка во время WebSocket подключения 409 Client Error for http+docker://localhost/v1.54/containers/5241ecdaf869aa58d8af1a40ebcad061f3a108b611bf748068dd7a89192a583e/exec: Conflict ("container 5241ecdaf869aa58d8af1a40ebcad061f3a108b611bf748068dd7a89192a583e is not running")
+2026-07-12 00:57:34,552 [INFO] {cloudidesandbox/api_v1/routes/websocket.py}: Контейнер остановил свою работу
+2026-07-12 00:57:34,572 [INFO] {cloudidesandbox/api_v1/routes/websocket.py}: Контейнер мягко удален
+2026-07-12 00:58:03,232 [INFO] {cloudidesandbox/api_v1/routes/websocket.py}: WebSocket подключение установлено
+2026-07-12 00:58:07,273 [INFO] {cloudidesandbox/api_v1/routes/websocket.py}: Выполнение команды ls
+2026-07-12 00:58:07,276 [ERROR] {cloudidesandbox/api_v1/routes/websocket.py}: Ошибка во время WebSocket подключения 409 Client Error for http+docker://localhost/v1.54/containers/e2e87949d08e5273a00b9fdfe53d5085d878ecdcb82ff09d295381d233f1e326/exec: Conflict ("container e2e87949d08e5273a00b9fdfe53d5085d878ecdcb82ff09d295381d233f1e326 is not running")
+2026-07-12 00:58:07,278 [INFO] {cloudidesandbox/api_v1/routes/websocket.py}: Контейнер остановил свою работу
+2026-07-12 00:58:07,287 [INFO] {cloudidesandbox/api_v1/routes/websocket.py}: Контейнер мягко удален
+2026-07-12 01:06:19,249 [INFO] {cloudidesandbox/api_v1/routes/websocket.py}: WebSocket подключение установлено
+2026-07-12 01:06:22,126 [INFO] {cloudidesandbox/api_v1/routes/websocket.py}: Выполнение команды ls
+2026-07-12 01:06:27,485 [INFO] {cloudidesandbox/api_v1/routes/websocket.py}: Выполнение команды ls -la
+2026-07-12 01:06:29,944 [INFO] {cloudidesandbox/api_v1/routes/websocket.py}: Выполнение команды clear
+2026-07-12 01:06:37,414 [INFO] {cloudidesandbox/api_v1/routes/websocket.py}: Выполнение команды sudo
+2026-07-12 01:06:41,503 [INFO] {cloudidesandbox/api_v1/routes/websocket.py}: Выполнение команды apt
+2026-07-12 01:08:06,507 [WARNING] {cloudidesandbox/api_v1/routes/websocket.py}: Пользователь оборвал WebSocket подключение - (1012, None)

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CloudIDE Sandbox MVP</title>
+    <style>
+      body {
+        background-color: #1e1e2e;
+        color: #cdd6f4;
+        font-family: monospace;
+        padding: 20px;
+      }
+      #terminal {
+        width: 100%;
+        height: 400px;
+        background-color: #11111b;
+        border: 1px solid #45475a;
+        padding: 10px;
+        overflow-y: scroll;
+        white-space: pre-wrap;
+        margin-bottom: 10px;
+      }
+      #input-area {
+        display: flex;
+      }
+      #command-input {
+        flex-grow: 1;
+        background-color: #313244;
+        color: #a6e3a1;
+        border: none;
+        padding: 10px;
+        font-family: monospace;
+        font-size: 16px;
+      }
+      #command-input:focus {
+        outline: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>⚡ CloudIDE Sandbox Terminal MVP</h2>
+    <div id="terminal">Ожидание подключения к бэкенду...<br /></div>
+    <div id="input-area">
+      <span style="padding: 10px; color: #f38ba8">$ &nbsp;</span>
+      <input
+        type="text"
+        id="command-input"
+        placeholder="Введите команду и нажмите Enter..."
+        autofocus
+      />
+    </div>
+
+    <script>
+      // Открываем WebSocket соединение с нашим FastAPI
+      const ws = new WebSocket("ws://localhost:8000/ws/terminal");
+      const terminal = document.getElementById("terminal");
+      const input = document.getElementById("command-input");
+
+      ws.onopen = () => {
+        terminal.innerHTML +=
+          "<span style='color: #89b4fa;'>✅ Подключено к WebSocket серверу.</span><br>";
+      };
+
+      ws.onmessage = (event) => {
+        // Добавляем ответ от сервера в окно терминала
+        terminal.innerHTML += event.data.replace(/\n/g, "<br>");
+        // Прокручиваем терминал вниз
+        terminal.scrollTop = terminal.scrollHeight;
+      };
+
+      ws.onclose = () => {
+        terminal.innerHTML +=
+          "<span style='color: #f38ba8;'><br>❌ Соединение закрыто. Контейнер уничтожен.</span><br>";
+      };
+
+      // Ловим нажатие Enter в поле ввода
+      input.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+          const command = input.value;
+          if (command.trim() !== "") {
+            // Отображаем команду локально в терминале
+            terminal.innerHTML += `<span style="color: #a6e3a1;">> ${command}</span><br>`;
+            // Отправляем команду на бэкенд
+            ws.send(command);
+            // Очищаем поле ввода
+            input.value = "";
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
