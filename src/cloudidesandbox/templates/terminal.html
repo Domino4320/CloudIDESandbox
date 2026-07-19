@@ -52,7 +52,7 @@
 
     <script>
       // Открываем WebSocket соединение с нашим FastAPI
-      const ws = new WebSocket("ws://localhost:8000/ws/terminal");
+      const ws = new WebSocket("ws://localhost:8000/api/v1/terminal/ws");
       const terminal = document.getElementById("terminal");
       const input = document.getElementById("command-input");
 

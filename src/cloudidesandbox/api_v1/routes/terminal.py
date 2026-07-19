@@ -4,10 +4,10 @@ from src.cloudidesandbox.logging_ import AppLogger
 import docker
 
 logger = AppLogger(__name__, to_file=True).get_logger()
-router = APIRouter(prefix="/ws")
+router = APIRouter(prefix="/terminal")
 
 
-@router.websocket("/terminal")
+@router.websocket("/ws")
 async def terminal_route(websocket: WebSocket):
     await websocket.accept()
     logger.info("WebSocket подключение установлено")
