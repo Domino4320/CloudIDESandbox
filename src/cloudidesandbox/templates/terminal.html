@@ -51,7 +51,6 @@
     </div>
 
     <script>
-      // Открываем WebSocket соединение с нашим FastAPI
       const ws = new WebSocket("ws://localhost:8000/api/v1/terminal/ws");
       const terminal = document.getElementById("terminal");
       const input = document.getElementById("command-input");
@@ -62,9 +61,7 @@
       };
 
       ws.onmessage = (event) => {
-        // Добавляем ответ от сервера в окно терминала
         terminal.innerHTML += event.data.replace(/\n/g, "<br>");
-        // Прокручиваем терминал вниз
         terminal.scrollTop = terminal.scrollHeight;
       };
 
@@ -73,16 +70,12 @@
           "<span style='color: #f38ba8;'><br>❌ Соединение закрыто. Контейнер уничтожен.</span><br>";
       };
 
-      // Ловим нажатие Enter в поле ввода
       input.addEventListener("keydown", function (event) {
         if (event.key === "Enter") {
           const command = input.value;
           if (command.trim() !== "") {
-            // Отображаем команду локально в терминале
             terminal.innerHTML += `<span style="color: #a6e3a1;">> ${command}</span><br>`;
-            // Отправляем команду на бэкенд
             ws.send(command);
-            // Очищаем поле ввода
             input.value = "";
           }
         }

@@ -1,11 +1,31 @@
-2026-07-19 16:10:33,218 [INFO] {cloudidesandbox/api_v1/routes/terminal.py}: WebSocket подключение установлено
-2026-07-19 16:10:36,707 [INFO] {cloudidesandbox/api_v1/routes/terminal.py}: Выполнение команды ls
-2026-07-19 16:10:39,528 [INFO] {cloudidesandbox/api_v1/routes/terminal.py}: Выполнение команды ls -la
-2026-07-19 16:26:54,676 [WARNING] {cloudidesandbox/api_v1/routes/terminal.py}: Пользователь оборвал WebSocket подключение - (1012, None)
-2026-07-19 16:27:08,697 [ERROR] {cloudidesandbox/api_v1/routes/terminal.py}: Возникла ошибка при удалении контейнера: 500 Server Error for http+docker://localhost/v1.54/containers/59207c8af9a7967c58efe07a6c10c9b62028a6a11389e012002a6b681152e54d/stop: Internal Server Error ("cannot stop container: 59207c8af9a7967c58efe07a6c10c9b62028a6a11389e012002a6b681152e54d: permission denied")
-2026-07-19 16:29:09,956 [INFO] {cloudidesandbox/api_v1/routes/terminal.py}: WebSocket подключение установлено
-2026-07-19 16:29:12,006 [INFO] {cloudidesandbox/api_v1/routes/terminal.py}: Выполнение команды ls
-2026-07-19 16:29:13,773 [INFO] {cloudidesandbox/api_v1/routes/terminal.py}: Выполнение команды ls -la
-2026-07-19 16:29:15,186 [INFO] {cloudidesandbox/api_v1/routes/terminal.py}: Выполнение команды clear
-2026-07-19 16:29:17,375 [WARNING] {cloudidesandbox/api_v1/routes/terminal.py}: Пользователь оборвал WebSocket подключение - (1001, '')
-2026-07-19 16:29:31,404 [ERROR] {cloudidesandbox/api_v1/routes/terminal.py}: Возникла ошибка при удалении контейнера: 500 Server Error for http+docker://localhost/v1.54/containers/88d91ebc08f4667ce061c6af821e93900884674167fe699fbcb4ed9be44497b8/stop: Internal Server Error ("cannot stop container: 88d91ebc08f4667ce061c6af821e93900884674167fe699fbcb4ed9be44497b8: permission denied")
+2026-07-20 09:43:20,559 [INFO] {cloudidesandbox/api_v1/routes/terminal.py}: Окружение пользователя инициализировано
+2026-07-20 09:43:20,560 [INFO] {cloudidesandbox/api_v1/routes/terminal.py}: WebSocket подключение установлено
+2026-07-20 09:43:32,941 [INFO] {cloudidesandbox/api_v1/routes/terminal.py}: Выполнение команды ls -la
+2026-07-20 09:43:36,264 [WARNING] {cloudidesandbox/api_v1/routes/terminal.py}: Пользователь оборвал WebSocket подключение - (1001, '')
+2026-07-20 09:43:46,376 [INFO] {cloudidesandbox/api_v1/routes/terminal.py}: Контейнер остановил свою работу
+2026-07-20 09:43:46,387 [INFO] {cloudidesandbox/api_v1/routes/terminal.py}: Контейнер мягко удален
+2026-07-20 09:43:46,389 [INFO] {cloudidesandbox/api_v1/routes/terminal.py}: Окружение пользователя инициализировано
+2026-07-20 09:43:46,389 [INFO] {cloudidesandbox/api_v1/routes/terminal.py}: WebSocket подключение установлено
+2026-07-20 09:44:12,788 [INFO] {cloudidesandbox/api_v1/routes/terminal.py}: Выполнение команды ls -la
+2026-07-20 09:44:16,775 [INFO] {cloudidesandbox/api_v1/routes/terminal.py}: Выполнение команды cat
+2026-07-20 09:44:25,279 [INFO] {cloudidesandbox/api_v1/routes/terminal.py}: Выполнение команды cd
+2026-07-20 09:44:40,364 [INFO] {cloudidesandbox/api_v1/routes/terminal.py}: Выполнение команды cd etc/
+2026-07-20 09:44:43,210 [INFO] {cloudidesandbox/api_v1/routes/terminal.py}: Выполнение команды cd etc
+2026-07-20 09:45:21,477 [WARNING] {cloudidesandbox/api_v1/routes/terminal.py}: Пользователь оборвал WebSocket подключение - (1001, '')
+2026-07-20 09:45:31,602 [INFO] {cloudidesandbox/api_v1/routes/terminal.py}: Контейнер остановил свою работу
+2026-07-20 09:45:31,611 [INFO] {cloudidesandbox/api_v1/routes/terminal.py}: Контейнер мягко удален
+2026-07-20 09:45:31,612 [INFO] {cloudidesandbox/api_v1/routes/terminal.py}: Окружение пользователя инициализировано
+2026-07-20 09:45:31,612 [INFO] {cloudidesandbox/api_v1/routes/terminal.py}: WebSocket подключение установлено
+2026-07-20 09:45:37,734 [INFO] {cloudidesandbox/api_v1/routes/terminal.py}: Выполнение команды ls
+2026-07-20 09:45:45,731 [INFO] {cloudidesandbox/api_v1/routes/terminal.py}: Выполнение команды cd /bin
+2026-07-20 09:45:50,000 [INFO] {cloudidesandbox/api_v1/routes/terminal.py}: Выполнение команды cd bin
+2026-07-20 09:45:57,381 [INFO] {cloudidesandbox/api_v1/routes/terminal.py}: Выполнение команды help
+2026-07-20 09:46:02,033 [INFO] {cloudidesandbox/api_v1/routes/terminal.py}: Выполнение команды man
+2026-07-20 09:49:33,184 [INFO] {cloudidesandbox/api_v1/routes/terminal.py}: Выполнение команды ls bin
+2026-07-20 09:49:58,399 [INFO] {cloudidesandbox/api_v1/routes/terminal.py}: Выполнение команды bash
+2026-07-20 09:50:01,424 [INFO] {cloudidesandbox/api_v1/routes/terminal.py}: Выполнение команды cd
+2026-07-20 09:54:03,787 [INFO] {cloudidesandbox/api_v1/routes/terminal.py}: Выполнение команды type cd
+2026-07-20 09:59:51,267 [INFO] {cloudidesandbox/api_v1/routes/terminal.py}: Выполнение команды apt --version
+2026-07-20 09:59:56,945 [INFO] {cloudidesandbox/api_v1/routes/terminal.py}: Выполнение команды sudo
+2026-07-20 10:00:03,822 [INFO] {cloudidesandbox/api_v1/routes/terminal.py}: Выполнение команды apt install
+2026-07-20 10:00:12,251 [INFO] {cloudidesandbox/api_v1/routes/terminal.py}: Выполнение команды apt update

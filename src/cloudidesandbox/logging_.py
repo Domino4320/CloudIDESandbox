@@ -4,7 +4,7 @@ from logging import Filter
 from pathlib import Path
 from typing import Literal
 
-PROJECT_ROOT = Path(__file__).parent.parent.resolve()
+PROJECT_ROOT = Path(__file__).parents[1].resolve()
 
 
 class RelativePathFilter(Filter):

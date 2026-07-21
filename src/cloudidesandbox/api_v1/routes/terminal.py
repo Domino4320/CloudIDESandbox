@@ -1,16 +1,22 @@
 from fastapi import WebSocket, WebSocketDisconnect, APIRouter
 from fastapi.responses import FileResponse
+from fastapi.concurrency import run_in_threadpool
 from src.cloudidesandbox.logging_ import AppLogger
+from src.cloudidesandbox.api_v1.services.workspaces import initialize_user_workspace
+import os
 import docker
+import asyncio
 
 logger = AppLogger(__name__, to_file=True).get_logger()
-router = APIRouter(prefix="/terminal")
+router = APIRouter(prefix="/containers")
 
 
-@router.websocket("/ws")
-async def terminal_route(websocket: WebSocket):
+@router.websocket("/start/ws")
+async def terminal_route1(websocket: WebSocket):
     await websocket.accept()
     logger.info("WebSocket подключение установлено")
+    run_in_threadpool(initialize_user_workspace)
+    logger.info("Окружение пользователя инициализировано")
     container = None
     try:
         client = docker.from_env()
@@ -50,6 +56,9 @@ async def terminal_route(websocket: WebSocket):
             logger.warning("Контейнер блы удален принудительно")
 
 
-@router.get("/")
-async def index():
-    return FileResponse("src/cloudidesandbox/templates/index.html")
+# @router.websocket("/ws/2")
+# async def terminal_route2(websocket : WebSocket):
+#     await websocket.accept()
+#     master_fd, slave_fd = os.openpty()
+#     try:
+#         proc = asyncio.create_subprocess_exec("docker", "exec", "it")
