@@ -17,12 +17,12 @@ class ContainerService:
         for parent in Path(__file__).parents:
             if parent.name == "cloudidesandbox":
                 parent_dir = parent
-        return parent_dir / "workspaces" / self.user_id
+        return parent_dir / "workspaces" / "mock_user"
 
     async def create_container(self, container_image: str) -> str:
-        container_name = str(uuid.uuid4)
+        container_name = str(uuid.uuid4())
         container = await asyncio.to_thread(
-            self.docker_client.containers.create(
+            lambda: self.docker_client.containers.create(
                 image=container_image,
                 detach=True,
                 name=container_name,
@@ -37,15 +37,33 @@ class ContainerService:
         return container.name
 
     async def start_container(self, container_name: str) -> None:
-
-        def run_container(self):
+        def _start_container():
             container = self.docker_client.containers.get(container_name)
             if container.status != "running":
                 container.start()
 
         try:
-            await asyncio.to_thread(run_container)
+            await asyncio.to_thread(_start_container)
         except NotFound:
             raise ContainerNotFoundError(container_name)
 
-    async def stop_container(self, container_name: str) -> None: ...
+    async def stop_container(self, container_name: str) -> None:
+        def _stop_container():
+            container = self.docker_client.containers.get(container_name)
+            if container.status == "running":
+                container.stop()
+
+        try:
+            await asyncio.to_thread(_stop_container)
+        except NotFound:
+            raise ContainerNotFoundError(container_name)
+
+    async def remove_container(self, container_name: str) -> None:
+        def _remove_container():
+            container = self.docker_client.containers.get(container_name)
+            container.remove(force=True, v=True)
+
+        try:
+            await asyncio.to_thread(_remove_container)
+        except NotFound:
+            raise ContainerNotFoundError(container_name)

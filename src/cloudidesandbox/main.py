@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from src.cloudidesandbox.api_v1.routes.terminal import router as terminal_router
 from src.cloudidesandbox.api_v1.routes.workspaces import router as workspaces_router
+from src.cloudidesandbox.api_v1.routes.containers import router as containers_router
 from src.cloudidesandbox.api_v1.exceptions.handlers import register_exception_handlers
 from src.cloudidesandbox.pages import router as pages_router
 from fastapi.middleware.cors import CORSMiddleware
@@ -16,6 +17,7 @@ app.add_middleware(
 )
 app.include_router(terminal_router, prefix="/api/v1", tags=["API v1 terminal"])
 app.include_router(workspaces_router, prefix="/api/v1", tags=["API v1 workspaces"])
+app.include_router(containers_router, prefix="/api/v1", tags=["API v1 containers"])
 app.include_router(pages_router, tags=["HTML Pages"])
 register_exception_handlers(app)
 

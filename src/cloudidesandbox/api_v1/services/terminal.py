@@ -43,6 +43,8 @@ class TerminalService:
     async def _web_to_pty(self, master_fd: int) -> None:
         while True:
             request = await self.websocket.receive_text()
+            if not request.endswith("\n"):
+                request += "\n"
             await asyncio.to_thread(os.write, master_fd, request.encode("utf-8"))
 
     async def run(self) -> None:

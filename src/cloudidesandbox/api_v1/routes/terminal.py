@@ -7,7 +7,7 @@ logger = AppLogger(__name__, to_file=True).get_logger()
 router = APIRouter()
 
 
-@router.websocket("ws/terminal/{container_id}")
+@router.websocket("/ws/terminal/{container_id}")
 async def terminal_session(websocket: WebSocket, container_id: str) -> None:
     await websocket.accept()
     initialize_user_workspace()

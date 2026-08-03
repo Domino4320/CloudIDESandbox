@@ -51,7 +51,9 @@
     </div>
 
     <script>
-      const ws = new WebSocket("ws://localhost:8000/api/v1/terminal/ws");
+      const ws = new WebSocket(
+        "ws://localhost:8000/api/v1/ws/terminal/08ace1dd-e01f-453b-b8f1-f622ebfabfcb",
+      );
       const terminal = document.getElementById("terminal");
       const input = document.getElementById("command-input");
 
@@ -61,7 +63,11 @@
       };
 
       ws.onmessage = (event) => {
-        terminal.innerHTML += event.data.replace(/\n/g, "<br>");
+        let text = event.data;
+        text = text.replace(/\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])/g, "");
+        text = text.replace(/\r\n/g, "<br>").replace(/\r/g, "");
+
+        terminal.innerHTML += text;
         terminal.scrollTop = terminal.scrollHeight;
       };
 
@@ -74,7 +80,6 @@
         if (event.key === "Enter") {
           const command = input.value;
           if (command.trim() !== "") {
-            terminal.innerHTML += `<span style="color: #a6e3a1;">> ${command}</span><br>`;
             ws.send(command);
             input.value = "";
           }
