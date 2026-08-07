@@ -13,7 +13,8 @@ dependencies = [
     "docker (>=7.1.0,<8.0.0)",
     "websockets (>=16.1,<17.0)",
     "sqlalchemy (>=2.0.51,<3.0.0)",
-    "alembic (>=1.19.0,<2.0.0)"
+    "alembic (>=1.19.0,<2.0.0)",
+    "pydantic-settings (>=2.15.0,<3.0.0)"
 ]
 
 [tool.poetry]
