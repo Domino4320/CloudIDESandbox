@@ -1,6 +1,5 @@
-from __future__ import annotations
 from fastapi import APIRouter, status
-from src.cloudidesandbox.api_v1.dependencies.containers import ContainerServiceDep
+from src.cloudidesandbox.dependencies.containers import ContainerServiceDep
 
 router = APIRouter(prefix="/containers")
 

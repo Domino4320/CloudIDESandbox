@@ -1,7 +1,7 @@
 from fastapi import WebSocket, WebSocketDisconnect, APIRouter
-from src.cloudidesandbox.logging_ import AppLogger
-from src.cloudidesandbox.api_v1.services.workspaces import initialize_user_workspace
-from src.cloudidesandbox.api_v1.services.terminal import TerminalService
+from cloudidesandbox.core.logging import AppLogger
+from src.cloudidesandbox.services.workspaces import initialize_user_workspace
+from src.cloudidesandbox.services.terminal import TerminalService
 
 logger = AppLogger(__name__, to_file=True).get_logger()
 router = APIRouter()

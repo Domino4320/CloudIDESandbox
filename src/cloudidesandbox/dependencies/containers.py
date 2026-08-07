@@ -1,4 +1,4 @@
-from src.cloudidesandbox.api_v1.services.containers import ContainerService
+from src.cloudidesandbox.services.containers import ContainerService
 from fastapi import Depends
 from functools import lru_cache
 import docker

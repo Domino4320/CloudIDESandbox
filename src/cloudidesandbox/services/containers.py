@@ -31,7 +31,7 @@ class ContainerService:
                 working_dir="/workspace",
                 mem_limit="512m",
                 nano_cpus=1_000_000_000,
-                volumes={self.workspace_dir: {"bind": "/workspace", "mode": "rw"}},
+                volumes={self.workspace_dir: {"bind": "/workspaces", "mode": "rw"}},
             )
         )
         return container.name
