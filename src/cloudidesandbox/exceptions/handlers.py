@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Request, status
 from fastapi.responses import JSONResponse
-from src.cloudidesandbox.api_v1.exceptions.containers import ContainerNotFoundError
+from src.cloudidesandbox.exceptions.containers import ContainerNotFoundError
 
 
 async def container_not_found_handler(request: Request, exc: ContainerNotFoundError):

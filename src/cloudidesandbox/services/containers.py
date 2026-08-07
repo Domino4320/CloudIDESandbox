@@ -3,7 +3,7 @@ from docker.errors import NotFound
 from pathlib import Path
 import asyncio
 import uuid
-from src.cloudidesandbox.api_v1.exceptions.containers import ContainerNotFoundError
+from src.cloudidesandbox.exceptions.containers import ContainerNotFoundError
 
 
 class ContainerService:

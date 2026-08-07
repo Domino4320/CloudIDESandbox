@@ -1,5 +1,5 @@
 from fastapi import WebSocket, WebSocketDisconnect, APIRouter
-from cloudidesandbox.core.logging import AppLogger
+from src.cloudidesandbox.core.logging import AppLogger
 from src.cloudidesandbox.services.workspaces import initialize_user_workspace
 from src.cloudidesandbox.services.terminal import TerminalService
 

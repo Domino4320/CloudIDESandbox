@@ -1,13 +1,13 @@
-from fastapi import FastAPI
-from src.cloudidesandbox.api_v1.routes.terminal import router as terminal_router
-from src.cloudidesandbox.api_v1.routes.workspaces import router as workspaces_router
-from src.cloudidesandbox.api_v1.routes.containers import router as containers_router
-from src.cloudidesandbox.api_v1.exceptions.handlers import register_exception_handlers
+from fastapi import FastAPI, APIRouter
+from src.cloudidesandbox.exceptions.handlers import register_exception_handlers
 from src.cloudidesandbox.pages import router as pages_router
+from src.cloudidesandbox.api.v1.router import router as api_v1_router
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 
 app = FastAPI(title="CloudIDESandbox")
+
+api_router = APIRouter(prefix="/api")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -15,10 +15,10 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-app.include_router(terminal_router, prefix="/api/v1", tags=["API v1 terminal"])
-app.include_router(workspaces_router, prefix="/api/v1", tags=["API v1 workspaces"])
-app.include_router(containers_router, prefix="/api/v1", tags=["API v1 containers"])
+
 app.include_router(pages_router, tags=["HTML Pages"])
+api_router.include_router(api_v1_router)
+app.include_router(api_router)
 register_exception_handlers(app)
 
 if __name__ == "__main__":
