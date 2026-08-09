@@ -16,4 +16,13 @@ class DatabaseConfig(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env")
 
 
+class SecurityConfig(BaseSettings):
+
+    ALGORITHM: str
+    SECRET_KEY: str
+
+    model_config = SettingsConfigDict(env_file=".env")
+
+
 db_config = DatabaseConfig()
+security_config = SecurityConfig()
