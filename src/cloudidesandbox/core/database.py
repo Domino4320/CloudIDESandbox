@@ -7,4 +7,5 @@ sessionmaker = async_sessionmaker(engine, expire_on_commit=False)
 
 async def get_session():
     async with sessionmaker() as session:
-        yield session
+        async with session.begin():
+            yield session
