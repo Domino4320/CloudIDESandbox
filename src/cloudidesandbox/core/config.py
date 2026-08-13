@@ -1,5 +1,7 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
+config = SettingsConfigDict(env_file=".env", extra="allow")
+
 
 class DatabaseConfig(BaseSettings):
 
@@ -13,7 +15,7 @@ class DatabaseConfig(BaseSettings):
     def DB_URL(self):
         return f"postgresql+asyncpg://{self.DB_USER}:{self.DB_PASS}@{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}"
 
-    model_config = SettingsConfigDict(env_file=".env")
+    model_config = config
 
 
 class SecurityConfig(BaseSettings):
@@ -21,7 +23,7 @@ class SecurityConfig(BaseSettings):
     ALGORITHM: str
     SECRET_KEY: str
 
-    model_config = SettingsConfigDict(env_file=".env")
+    model_config = config
 
 
 db_config = DatabaseConfig()
