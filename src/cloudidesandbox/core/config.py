@@ -1,6 +1,6 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
-config = SettingsConfigDict(env_file=".env", extra="allow")
+config = SettingsConfigDict(env_file=".env", extra="ignore")
 
 
 class DatabaseConfig(BaseSettings):
@@ -26,5 +26,19 @@ class SecurityConfig(BaseSettings):
     model_config = config
 
 
+class RedisConfig(BaseSettings):
+
+    REDIS_PORT: int
+    REDIS_HOST: str
+    REDIS_DB: int
+
+    @property
+    def REDIS_URL(self):
+        return f"redis://{self.REDIS_HOST}:{self.REDIS_PORT}/{self.REDIS_DB}"
+
+    model_config = config
+
+
 db_config = DatabaseConfig()
 security_config = SecurityConfig()
+redis_config = RedisConfig()

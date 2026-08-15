@@ -10,6 +10,7 @@ from src.cloudidesandbox.exceptions.security import (
     TokenExpiredError,
     TokenError,
 )
+import uuid
 
 password_hash = PasswordHash((Argon2Hasher(),))
 DUMMY_HASH = password_hash.hash("dummy_password")
@@ -35,6 +36,7 @@ def create_jwt(
         "exp": now + expires_delta,
         "iat": now,
         "type": token_type,
+        "jti": uuid.uuid4(),
     }
     if extras:
         payload.update(extras)
