@@ -11,14 +11,14 @@ import uvicorn
 
 
 @asynccontextmanager
-async def lifespan():
+async def lifespan(app: FastAPI):
     await init_redis()
     yield
     await close_redis()
     await engine.dispose()
 
 
-app = FastAPI(title="CloudIDESandbox")
+app = FastAPI(title="CloudIDESandbox", lifespan=lifespan)
 
 api_router = APIRouter(prefix="/api")
 app.add_middleware(

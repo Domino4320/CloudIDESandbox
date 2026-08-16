@@ -1,6 +1,6 @@
 from src.cloudidesandbox.exceptions.base import AppException
 
 
-class RedisNotInitializedError:
+class RedisNotInitializedError(AppException):
 
     detail = "redis is not initialized"

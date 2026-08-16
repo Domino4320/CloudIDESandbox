@@ -29,14 +29,15 @@ def create_jwt(
     expires_delta: timedelta,
     token_type: Literal["access", "refresh"],
     extras: dict | None = None,
-):
+) -> dict:
     now = datetime.now(timezone.utc)
+    jti = str(uuid.uuid4())
     payload = {
         "sub": subject,
         "exp": now + expires_delta,
         "iat": now,
         "type": token_type,
-        "jti": uuid.uuid4(),
+        "jti": jti,
     }
     if extras:
         payload.update(extras)
@@ -45,7 +46,7 @@ def create_jwt(
         security_config.SECRET_KEY,
         security_config.ALGORITHM,
     )
-    return encoded_jwt
+    return encoded_jwt, jti
 
 
 def get_payload(jwt_token: str) -> dict:
